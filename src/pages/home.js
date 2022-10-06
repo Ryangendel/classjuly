@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Header from "../components/Header"
 
-function HomePage(props) {
+function HomePage({setUserName}) {
 
     const [user, setUser] = useState("")
     const [user1Cards, setUser1Cards] = useState("")
@@ -14,11 +14,11 @@ function HomePage(props) {
 
     function updateUser(e){
         e.preventDefault()
-        // console.log("----------")
-        // console.log(e.target.name.value)
+        console.log("----------")
+        console.log(e.target.name.name)
         //user
-        props.setUserName(e.target.name.value)
-        
+        setUserName(e.target.name.value)
+        //setUser(e.target.name.value)
     }
 
 

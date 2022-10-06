@@ -11,7 +11,7 @@ console.log(username)
     <div className="App">
       {username ?
       <BlackJackPage username={username}/> :
-       <HomePage setUserName={setUserName}/>
+      <HomePage setUserName={setUserName}/>
        }
     </div>
   );
