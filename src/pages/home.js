@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
 import Header from "../components/Header"
+import {useBlackJackContext} from "../utils/blackjackContext"
 
 function HomePage({setUserName}) {
+    const {setCurrentUser, currentUser} = useBlackJackContext()
 
     const [user, setUser] = useState("")
     const [user1Cards, setUser1Cards] = useState("")
@@ -15,9 +17,10 @@ function HomePage({setUserName}) {
     function updateUser(e){
         e.preventDefault()
         console.log("----------")
-        console.log(e.target.name.name)
+        console.log(e.target.name.value)
         //user
-        setUserName(e.target.name.value)
+        setCurrentUser(e.target.name.value)
+        
         //setUser(e.target.name.value)
     }
 
@@ -45,6 +48,9 @@ function HomePage({setUserName}) {
             </form>
             <div>
                 {user}
+            </div>
+            <div>
+                {currentUser}
             </div>
         </div>
 

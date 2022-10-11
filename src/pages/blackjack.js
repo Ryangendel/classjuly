@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
 import { shuffleCards, dealCards } from "../utils/helpers"
+import {useBlackJackContext} from "../utils/blackjackContext"
 
 function BlackJackPage({ username }) {
+    const {setCurrentUser, currentUser} = useBlackJackContext()
     const [userData, setUserData] = useState({})
     const [draws, setDraws] = useState(0)
     const [userCards, setUserCards] = useState([])
@@ -9,6 +11,7 @@ function BlackJackPage({ username }) {
     const [currentDeck, setCurrentDeck] = useState([])
     const [activeGame, setActiveGame] = useState(true)
     const [whoIsDrawing, setWhoIsDrawing] = useState("user")
+    const [currentCard, setCurrentCard] = useState(3)
 
     useEffect(() => {
         const shuffledCards = shuffleCards()
@@ -25,7 +28,9 @@ function BlackJackPage({ username }) {
 
     function hitMe(){
         if(whoIsDrawing=="user"){
-            console.log("inside user")
+            
+
+        }else{
 
         }
     }
@@ -38,6 +43,9 @@ function BlackJackPage({ username }) {
             {userCards}
 
             <button onClick={hitMe}>Hit Me</button>
+            <div>
+            {currentUser}
+            </div>
         </div>
     )
 }
