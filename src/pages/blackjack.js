@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
 import { shuffleCards, dealCards } from "../utils/helpers"
 import {useBlackJackContext} from "../utils/blackjackContext"
+// import { Link } from "react-router-dom"
 
 function BlackJackPage({ username }) {
-    const {setCurrentUser, currentUser} = useBlackJackContext()
+    const {currentUser} = useBlackJackContext()
     const [userData, setUserData] = useState({})
     const [draws, setDraws] = useState(0)
     const [userCards, setUserCards] = useState([])
@@ -43,8 +44,10 @@ function BlackJackPage({ username }) {
             {userCards}
 
             <button onClick={hitMe}>Hit Me</button>
+            
+            
             <div>
-            {currentUser}
+            Good luck {currentUser}!
             </div>
         </div>
     )

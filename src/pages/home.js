@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
 import Header from "../components/Header"
 import {useBlackJackContext} from "../utils/blackjackContext"
+import {Link} from "react-router-dom"
 
 function HomePage({setUserName}) {
-    const {setCurrentUser, currentUser} = useBlackJackContext()
+    const {setCurrentUser, currentUser, checkIfThereIsWinner} = useBlackJackContext()
 
     const [user, setUser] = useState("")
     const [user1Cards, setUser1Cards] = useState("")
@@ -50,7 +51,7 @@ function HomePage({setUserName}) {
                 {user}
             </div>
             <div>
-                {currentUser}
+                {currentUser?<Link to="/blackjackgame">PLAY GAME</Link>:""}
             </div>
         </div>
 
